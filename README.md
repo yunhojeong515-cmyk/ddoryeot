@@ -1,4 +1,4 @@
-# 또렷 (Ddoryeot)
+# 또렷 (DDORYEOT)
 
 ![License](https://img.shields.io/badge/license-GPLv3-blue.svg)
 ![Platform](https://img.shields.io/badge/platform-Android-3DDC84.svg)

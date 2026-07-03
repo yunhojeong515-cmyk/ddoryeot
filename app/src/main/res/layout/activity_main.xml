@@ -36,17 +36,25 @@
         android:gravity="center">
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="또렷"
+            android:text="@string/app_logo"
             android:textSize="72sp"
             android:textColor="#FF3B30"
-            android:fontFamily="@font/moneygraphy" />
+            android:fontFamily="@font/moneygraphy"
+            android:maxLines="1"
+            android:gravity="center"
+            android:autoSizeTextType="uniform"
+            android:autoSizeMinTextSize="32sp"
+            android:autoSizeMaxTextSize="72sp"
+            android:autoSizeStepGranularity="2sp"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="언제나 어디서나&#10;작동하는 돋보기"
+            android:text="@string/home_subtitle"
             android:textSize="20sp"
             android:textColor="#8E8E93"
             android:fontFamily="@font/moneygraphy"
@@ -63,7 +71,7 @@
         android:id="@+id/btnStart"
         android:layout_width="match_parent"
         android:layout_height="64dp"
-        android:text="돋보기 시작"
+        android:text="@string/btn_start"
         android:textSize="22sp"
         android:textColor="#FFFFFF"
         android:fontFamily="@font/moneygraphy"
@@ -74,7 +82,7 @@
         android:id="@+id/btnStop"
         android:layout_width="match_parent"
         android:layout_height="64dp"
-        android:text="돋보기 끄기"
+        android:text="@string/btn_stop"
         android:textSize="22sp"
         android:textColor="#FFFFFF"
         android:fontFamily="@font/moneygraphy"
@@ -96,7 +104,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="화면 가장자리의"
+            android:text="@string/guide_line1"
             android:textSize="18sp"
             android:textColor="#8E8E93"
             android:fontFamily="@font/moneygraphy" />
@@ -112,7 +120,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="빨간 네모 "
+                android:text="@string/guide_red_box"
                 android:textSize="22sp"
                 android:textColor="#FF3B30"
                 android:fontFamily="@font/moneygraphy" />
@@ -126,7 +134,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="터치해보세요!"
+            android:text="@string/guide_line3"
             android:textSize="18sp"
             android:textColor="#8E8E93"
             android:fontFamily="@font/moneygraphy" />
@@ -134,7 +142,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Made by 정윤호"
+            android:text="@string/made_by"
             android:textSize="12sp"
             android:textColor="#C7C7CC"
             android:fontFamily="@font/moneygraphy"

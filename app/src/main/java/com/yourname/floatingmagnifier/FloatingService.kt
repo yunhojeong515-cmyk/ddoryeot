@@ -162,7 +162,7 @@ class FloatingService : Service() {
         // 조준점을 눈에 띄게 (탭하면 다시 시작됨을 암시) 100% 불투명으로
         aimDot?.alpha = 1.0f
         handler.post {
-            Toast.makeText(this, "화면이 꺼져 돋보기를 다시 켜야 해요. 조준점을 탭하세요 🔍", Toast.LENGTH_LONG).show()
+            Toast.makeText(this, getString(R.string.toast_screen_off), Toast.LENGTH_LONG).show()
         }
     }
 
@@ -304,7 +304,7 @@ class FloatingService : Service() {
             projectionDead = false
             aimDot?.alpha = 1.0f
             isRunning = true
-            handler.post { Toast.makeText(this, "돋보기 다시 시작됐어요 🔍", Toast.LENGTH_SHORT).show() }
+            handler.post { Toast.makeText(this, getString(R.string.toast_restarted), Toast.LENGTH_SHORT).show() }
             return START_NOT_STICKY
         }
 
@@ -599,7 +599,7 @@ class FloatingService : Service() {
     private fun showDeleteZone() {
         if (deleteZoneView != null) return
         val tv = android.widget.TextView(this).apply {
-            text = "✕  끌어서 종료"
+            text = getString(R.string.drag_to_close)
             setTextColor(Color.WHITE)
             textSize = 15f
             gravity = Gravity.CENTER
@@ -647,12 +647,12 @@ class FloatingService : Service() {
         (deleteZoneView as? android.widget.TextView)?.apply {
             if (active) {
                 setBackgroundResource(R.drawable.delete_pill_active)
-                text = "✕  놓으면 종료"
+                text = getString(R.string.release_to_close)
                 val padH = (24 * density).toInt(); val padV = (14 * density).toInt()
                 setPadding(padH, padV, padH, padV)
             } else {
                 setBackgroundResource(R.drawable.delete_pill)
-                text = "✕  끌어서 종료"
+                text = getString(R.string.drag_to_close)
                 val padH = (24 * density).toInt(); val padV = (14 * density).toInt()
                 setPadding(padH, padV, padH, padV)
             }
@@ -670,7 +670,7 @@ class FloatingService : Service() {
     }
 
     private fun createNotificationChannel() {
-        val ch = NotificationChannel(CHANNEL_ID, "플로팅 돋보기", NotificationManager.IMPORTANCE_LOW)
+        val ch = NotificationChannel(CHANNEL_ID, getString(R.string.notif_channel), NotificationManager.IMPORTANCE_LOW)
         getSystemService(NotificationManager::class.java).createNotificationChannel(ch)
     }
 
@@ -681,10 +681,10 @@ class FloatingService : Service() {
             PendingIntent.FLAG_IMMUTABLE
         )
         return NotificationCompat.Builder(this, CHANNEL_ID)
-            .setContentTitle("🔍 플로팅 돋보기 실행 중")
-            .setContentText("원을 탭하면 확대됩니다")
+            .setContentTitle(getString(R.string.notif_title))
+            .setContentText(getString(R.string.notif_text))
             .setSmallIcon(android.R.drawable.ic_menu_zoom)
-            .addAction(android.R.drawable.ic_delete, "종료", stop)
+            .addAction(android.R.drawable.ic_delete, getString(R.string.notif_stop), stop)
             .build()
     }
 

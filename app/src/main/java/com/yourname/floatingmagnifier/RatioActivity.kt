@@ -7,6 +7,8 @@ import android.widget.ImageButton
 import android.widget.SeekBar
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatDelegate
+import androidx.core.os.LocaleListCompat
 import kotlin.math.roundToInt
 
 class RatioActivity : AppCompatActivity() {
@@ -34,6 +36,17 @@ class RatioActivity : AppCompatActivity() {
         ratio169.setOnClickListener { it.performHapticFeedback(android.view.HapticFeedbackConstants.CONTEXT_CLICK); select(Prefs.RATIO_16_9) }
 
         updateSelection(Prefs.getRatio(this))
+
+        // ===== 언어 선택 =====
+        val langKo = findViewById<TextView>(R.id.langKo)
+        val langEn = findViewById<TextView>(R.id.langEn)
+        val langJa = findViewById<TextView>(R.id.langJa)
+
+        langKo.setOnClickListener { it.performHapticFeedback(android.view.HapticFeedbackConstants.CONTEXT_CLICK); setLanguage("ko") }
+        langEn.setOnClickListener { it.performHapticFeedback(android.view.HapticFeedbackConstants.CONTEXT_CLICK); setLanguage("en") }
+        langJa.setOnClickListener { it.performHapticFeedback(android.view.HapticFeedbackConstants.CONTEXT_CLICK); setLanguage("ja") }
+
+        updateLangSelection(langKo, langEn, langJa)
 
         // ===== 배율 슬라이더 =====
         // SeekBar progress 0~130 → 배율 1.2~2.5 (progress/100 + 1.2)
@@ -100,6 +113,20 @@ class RatioActivity : AppCompatActivity() {
         applyStyle(ratio11, selected == Prefs.RATIO_1_1)
         applyStyle(ratio43, selected == Prefs.RATIO_4_3)
         applyStyle(ratio169, selected == Prefs.RATIO_16_9)
+    }
+
+    // 앱 언어 변경 (앱 재시작 없이 즉시 적용)
+    private fun setLanguage(langCode: String) {
+        val locales = LocaleListCompat.forLanguageTags(langCode)
+        AppCompatDelegate.setApplicationLocales(locales)
+    }
+
+    // 현재 선택된 언어 강조 표시
+    private fun updateLangSelection(langKo: TextView, langEn: TextView, langJa: TextView) {
+        val current = AppCompatDelegate.getApplicationLocales().toLanguageTags()
+        applyStyle(langKo, current.startsWith("ko"))
+        applyStyle(langEn, current.startsWith("en"))
+        applyStyle(langJa, current.startsWith("ja"))
     }
 
     private fun applyStyle(view: TextView, isSelected: Boolean) {

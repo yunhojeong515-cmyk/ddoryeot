@@ -37,7 +37,7 @@ class MainActivity : AppCompatActivity() {
         findViewById<Button>(R.id.btnStop).setOnClickListener {
             it.performHapticFeedback(android.view.HapticFeedbackConstants.CONFIRM)
             stopService(Intent(this, FloatingService::class.java))
-            Toast.makeText(this, "돋보기 종료됨", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, getString(R.string.toast_stopped), Toast.LENGTH_SHORT).show()
         }
 
         // 설정(톱니바퀴) 버튼이 레이아웃에 있으면 비율 설정 화면 열기
@@ -59,7 +59,7 @@ class MainActivity : AppCompatActivity() {
         // 이미 실행 중이면 다시 시작하지 않음 (중복 시작 시 캡처가 죽는 문제 방지)
         // 단, 재동의(reconsent) 모드에서는 캡처만 다시 연결해야 하므로 통과시킴
         if (FloatingService.isRunning && !reconsent) {
-            Toast.makeText(this, "이미 돋보기가 켜져 있어요 🔍", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, getString(R.string.toast_already_running), Toast.LENGTH_SHORT).show()
             startActivity(Intent(Intent.ACTION_MAIN).apply {
                 addCategory(Intent.CATEGORY_HOME)
                 flags = Intent.FLAG_ACTIVITY_NEW_TASK
@@ -67,7 +67,7 @@ class MainActivity : AppCompatActivity() {
             return
         }
         if (!Settings.canDrawOverlays(this)) {
-            Toast.makeText(this, "다른 앱 위에 표시 권한을 허용해주세요", Toast.LENGTH_LONG).show()
+            Toast.makeText(this, getString(R.string.toast_need_overlay), Toast.LENGTH_LONG).show()
             startActivityForResult(
                 Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION, Uri.parse("package:$packageName")),
                 OVERLAY_REQUEST
@@ -91,7 +91,7 @@ class MainActivity : AppCompatActivity() {
         when (requestCode) {
             OVERLAY_REQUEST -> {
                 if (Settings.canDrawOverlays(this)) checkPermissions()
-                else Toast.makeText(this, "권한이 필요해요", Toast.LENGTH_SHORT).show()
+                else Toast.makeText(this, getString(R.string.toast_need_permission), Toast.LENGTH_SHORT).show()
             }
             PROJECTION_REQUEST -> {
                 if (resultCode == Activity.RESULT_OK && data != null) {
@@ -101,14 +101,14 @@ class MainActivity : AppCompatActivity() {
                         putExtra("data", data)
                     }
                     startForegroundService(serviceIntent)
-                    Toast.makeText(this, "돋보기 시작! 홈버튼을 눌러보세요 🔍", Toast.LENGTH_LONG).show()
+                    Toast.makeText(this, getString(R.string.toast_started), Toast.LENGTH_LONG).show()
                     // 홈으로 이동
                     startActivity(Intent(Intent.ACTION_MAIN).apply {
                         addCategory(Intent.CATEGORY_HOME)
                         flags = Intent.FLAG_ACTIVITY_NEW_TASK
                     })
                 } else {
-                    Toast.makeText(this, "화면 캡처 권한이 필요해요", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, getString(R.string.toast_need_capture), Toast.LENGTH_SHORT).show()
                 }
             }
         }

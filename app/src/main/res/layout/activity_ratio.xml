@@ -26,7 +26,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="확대창 배율"
+            android:text="@string/settings_zoom"
             android:textSize="26sp"
             android:textColor="#6E6E73"
             android:fontFamily="@font/moneygraphy"
@@ -90,7 +90,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="확대창 비율"
+            android:text="@string/settings_ratio"
             android:textSize="26sp"
             android:textColor="#6E6E73"
             android:fontFamily="@font/moneygraphy"
@@ -103,7 +103,7 @@
             android:orientation="vertical"
             android:gravity="center_horizontal"
             android:paddingTop="20dp"
-            android:paddingBottom="96dp">
+            android:paddingBottom="24dp">
 
             <TextView
                 android:id="@+id/ratio11"
@@ -132,6 +132,55 @@
                 android:gravity="center"
                 android:text="16:9"
                 android:textSize="28sp"
+                android:fontFamily="@font/moneygraphy" />
+        </LinearLayout>
+
+        <!-- ===== 언어 선택 ===== -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/settings_language"
+            android:textSize="26sp"
+            android:textColor="#6E6E73"
+            android:fontFamily="@font/moneygraphy"
+            android:gravity="center"
+            android:layout_marginTop="28dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center_horizontal"
+            android:paddingTop="20dp"
+            android:paddingBottom="96dp">
+
+            <TextView
+                android:id="@+id/langKo"
+                android:layout_width="213dp"
+                android:layout_height="72dp"
+                android:gravity="center"
+                android:text="@string/lang_ko"
+                android:textSize="22sp"
+                android:fontFamily="@font/moneygraphy"
+                android:layout_marginBottom="16dp" />
+
+            <TextView
+                android:id="@+id/langEn"
+                android:layout_width="213dp"
+                android:layout_height="72dp"
+                android:gravity="center"
+                android:text="@string/lang_en"
+                android:textSize="22sp"
+                android:fontFamily="@font/moneygraphy"
+                android:layout_marginBottom="16dp" />
+
+            <TextView
+                android:id="@+id/langJa"
+                android:layout_width="213dp"
+                android:layout_height="72dp"
+                android:gravity="center"
+                android:text="@string/lang_ja"
+                android:textSize="22sp"
                 android:fontFamily="@font/moneygraphy" />
         </LinearLayout>
 

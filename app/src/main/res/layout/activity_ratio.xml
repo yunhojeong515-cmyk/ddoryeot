@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- 뒤로가기 -->
+        <ImageButton
+            android:id="@+id/btnBack"
+            android:layout_width="46dp"
+            android:layout_height="36dp"
+            android:layout_margin="12dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:src="@drawable/ic_back"
+            android:scaleType="fitCenter"
+            android:contentDescription="뒤로" />
+
+        <!-- ===== 확대창 배율 ===== -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="확대창 배율"
+            android:textSize="26sp"
+            android:textColor="#6E6E73"
+            android:fontFamily="@font/moneygraphy"
+            android:gravity="center"
+            android:layout_marginTop="12dp" />
+
+        <!-- 현재 배율 값 박스 -->
+        <TextView
+            android:id="@+id/zoomValue"
+            android:layout_width="80dp"
+            android:layout_height="60dp"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center"
+            android:text="2.5"
+            android:textSize="26sp"
+            android:textColor="#FF3B30"
+            android:fontFamily="@font/moneygraphy"
+            android:background="@drawable/ratio_unselected"
+            android:layout_marginTop="20dp" />
+
+        <!-- 슬라이더 + 양끝 라벨 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:paddingStart="24dp"
+            android:paddingEnd="24dp"
+            android:layout_marginTop="8dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="2.0"
+                android:textSize="20sp"
+                android:textColor="#FF3B30"
+                android:fontFamily="@font/moneygraphy" />
+
+            <SeekBar
+                android:id="@+id/zoomSeek"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginStart="12dp"
+                android:layout_marginEnd="12dp"
+                android:max="100"
+                android:progress="50"
+                android:progressTint="#8E8E93"
+                android:thumbTint="#FF3B30" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="3.0"
+                android:textSize="20sp"
+                android:textColor="#FF3B30"
+                android:fontFamily="@font/moneygraphy" />
+        </LinearLayout>
+
+        <!-- ===== 확대창 비율 ===== -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="확대창 비율"
+            android:textSize="26sp"
+            android:textColor="#6E6E73"
+            android:fontFamily="@font/moneygraphy"
+            android:gravity="center"
+            android:layout_marginTop="40dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center_horizontal"
+            android:paddingTop="20dp"
+            android:paddingBottom="96dp">
+
+            <TextView
+                android:id="@+id/ratio11"
+                android:layout_width="120dp"
+                android:layout_height="96dp"
+                android:gravity="center"
+                android:text="1:1"
+                android:textSize="28sp"
+                android:fontFamily="@font/moneygraphy"
+                android:layout_marginBottom="18dp" />
+
+            <TextView
+                android:id="@+id/ratio43"
+                android:layout_width="160dp"
+                android:layout_height="96dp"
+                android:gravity="center"
+                android:text="4:3"
+                android:textSize="28sp"
+                android:fontFamily="@font/moneygraphy"
+                android:layout_marginBottom="18dp" />
+
+            <TextView
+                android:id="@+id/ratio169"
+                android:layout_width="213dp"
+                android:layout_height="96dp"
+                android:gravity="center"
+                android:text="16:9"
+                android:textSize="28sp"
+                android:fontFamily="@font/moneygraphy" />
+        </LinearLayout>
+
+    </LinearLayout>
+</ScrollView>

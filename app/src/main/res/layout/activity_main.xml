@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    android:orientation="vertical"
+    android:paddingStart="24dp"
+    android:paddingEnd="24dp">
+
+    <!-- 우측 상단 설정 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="end"
+        android:paddingTop="12dp">
+
+        <ImageButton
+            android:id="@+id/btnSettings"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:src="@drawable/ic_settings"
+            android:scaleType="fitCenter"
+            android:contentDescription="설정" />
+    </LinearLayout>
+
+    <!-- 상단 여백 -->
+    <Space android:layout_width="match_parent" android:layout_height="0dp" android:layout_weight="2" />
+
+    <!-- 로고 + 부제목 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="또렷"
+            android:textSize="72sp"
+            android:textColor="#FF3B30"
+            android:fontFamily="@font/moneygraphy" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="언제나 어디서나&#10;작동하는 돋보기"
+            android:textSize="20sp"
+            android:textColor="#8E8E93"
+            android:fontFamily="@font/moneygraphy"
+            android:gravity="center"
+            android:lineSpacingExtra="4dp"
+            android:layout_marginTop="8dp" />
+    </LinearLayout>
+
+    <!-- 로고와 버튼 사이 여백 -->
+    <Space android:layout_width="match_parent" android:layout_height="0dp" android:layout_weight="2" />
+
+    <!-- 버튼 -->
+    <Button
+        android:id="@+id/btnStart"
+        android:layout_width="match_parent"
+        android:layout_height="64dp"
+        android:text="돋보기 시작"
+        android:textSize="22sp"
+        android:textColor="#FFFFFF"
+        android:fontFamily="@font/moneygraphy"
+        android:background="@drawable/btn_primary"
+        android:stateListAnimator="@null" />
+
+    <Button
+        android:id="@+id/btnStop"
+        android:layout_width="match_parent"
+        android:layout_height="64dp"
+        android:text="돋보기 끄기"
+        android:textSize="22sp"
+        android:textColor="#FFFFFF"
+        android:fontFamily="@font/moneygraphy"
+        android:background="@drawable/btn_secondary"
+        android:stateListAnimator="@null"
+        android:layout_marginTop="14dp" />
+
+    <!-- 버튼과 하단 문구 사이 여백 -->
+    <Space android:layout_width="match_parent" android:layout_height="0dp" android:layout_weight="3" />
+
+    <!-- 하단 안내 문구 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:paddingBottom="48dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="화면 가장자리의"
+            android:textSize="18sp"
+            android:textColor="#8E8E93"
+            android:fontFamily="@font/moneygraphy" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginTop="6dp"
+            android:layout_marginBottom="6dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="빨간 네모 "
+                android:textSize="22sp"
+                android:textColor="#FF3B30"
+                android:fontFamily="@font/moneygraphy" />
+
+            <View
+                android:layout_width="34dp"
+                android:layout_height="34dp"
+                android:background="@drawable/standby_square" />
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="터치해보세요!"
+            android:textSize="18sp"
+            android:textColor="#8E8E93"
+            android:fontFamily="@font/moneygraphy" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Made by 정윤호"
+            android:textSize="12sp"
+            android:textColor="#C7C7CC"
+            android:fontFamily="@font/moneygraphy"
+            android:layout_marginTop="14dp" />
+    </LinearLayout>
+
+</LinearLayout>

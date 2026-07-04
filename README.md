@@ -4,10 +4,13 @@
 ![Platform](https://img.shields.io/badge/platform-Android-3DDC84.svg)
 ![Kotlin](https://img.shields.io/badge/language-Kotlin-7F52FF.svg)
 ![minSdk](https://img.shields.io/badge/minSdk-26-orange.svg)
+[![Download APK](https://img.shields.io/badge/Download-APK-FF3B30.svg?style=for-the-badge&logo=android)](https://github.com/yunhojeong515-cmyk/ddoryeot/releases/latest)
 
 > 언제나 어디서나, 화면 위 어디든 탭 한 번으로 즉시 확대되는 노안 사용자를 위한 플로팅 돋보기
 
 **또렷**은 노안(老眼)으로 스마트폰의 작은 글씨를 읽기 어려운 사용자를 위한 안드로이드 화면 돋보기 앱입니다. 어떤 앱을 사용하든 화면 위에 항상 떠 있는 작은 조준점을 탭하면, 그 주변을 실시간으로 확대해 보여줍니다.
+
+📱 **[최신 버전 APK 다운로드](https://github.com/yunhojeong515-cmyk/ddoryeot/releases/latest)** — 빌드 없이 바로 설치해서 사용해보세요.
 
 ---
 

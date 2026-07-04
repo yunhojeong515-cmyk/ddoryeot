@@ -543,8 +543,12 @@ class FloatingService : Service() {
             val cropH = (viewerH / zoom).toInt().coerceAtLeast(1)
             val cx = aimParams.x + aimSizePx / 2
             val cy = aimParams.y + aimSizePx / 2
-            val left = (cx - cropW / 2).coerceIn(0, bitmapWidth - cropW)
-            val top = (cy - cropH / 2).coerceIn(0, screenHeight - cropH)
+            // 실제 화면 영역(screenWidth) 기준으로 크롭 위치를 제한해야 함.
+            // bitmapWidth에는 정렬용 패딩이 포함돼 있어, 그대로 쓰면 화면 밖 빈 영역(흰색)이 잡힘.
+            val maxLeft = (screenWidth - cropW).coerceAtLeast(0)
+            val maxTop = (screenHeight - cropH).coerceAtLeast(0)
+            val left = (cx - cropW / 2).coerceIn(0, maxLeft)
+            val top = (cy - cropH / 2).coerceIn(0, maxTop)
 
             val cropped = Bitmap.createBitmap(bitmap, left, top, cropW, cropH)
             val scaled = Bitmap.createScaledBitmap(cropped, viewerW, viewerH, true)
@@ -593,9 +597,7 @@ class FloatingService : Service() {
         return output
     }
 
-    // ===== 하단 X(앱 종료) 영역 =====
-    private val deleteZoneHeightPx get() = (200 * density).toInt()
-
+    // ===== 하단 X(앱 종료) 알약 =====
     private fun showDeleteZone() {
         if (deleteZoneView != null) return
         val tv = android.widget.TextView(this).apply {
@@ -629,17 +631,37 @@ class FloatingService : Service() {
     }
 
     private fun hideDeleteZone() {
+        // isAttachedToWindow 조건으로 걸러내면, addView 직후 attach가
+        // 아직 안 끝난 타이밍에 hide가 호출될 때 제거가 스킵되어
+        // 참조만 null이 되고 뷰는 화면에 그대로 남는 문제가 있었음.
+        // 항상 제거를 시도하고, 이미 제거된 경우의 예외만 무시한다.
         deleteZoneView?.let {
-            if (it.isAttachedToWindow) try { windowManager.removeView(it) } catch (_: Exception) {}
+            try { windowManager.removeView(it) } catch (_: Exception) {}
         }
         deleteZoneView = null
         deleteZoneParams = null
     }
 
-    // 조준점 중심이 하단 X 영역 안에 들어왔는지
+    // 조준점 중심이 실제 종료 알약(버튼) 위에 있는지 판정
     private fun isOverDeleteZone(): Boolean {
-        val centerY = aimParams.y + aimParams.height / 2
-        return centerY >= (screenHeight - deleteZoneHeightPx)
+        val pill = deleteZoneView ?: return false
+        if (!pill.isAttachedToWindow || pill.width == 0) return false
+
+        // 알약의 화면상 실제 위치·크기
+        val loc = IntArray(2)
+        pill.getLocationOnScreen(loc)
+        // 판정 여유(터치 편의를 위해 알약 주변으로 약간 확장)
+        val margin = (24 * density).toInt()
+        val left = loc[0] - margin
+        val top = loc[1] - margin
+        val right = loc[0] + pill.width + margin
+        val bottom = loc[1] + pill.height + margin
+
+        // 조준점 중심 좌표
+        val cx = aimParams.x + aimParams.width / 2
+        val cy = aimParams.y + aimParams.height / 2
+
+        return cx in left..right && cy in top..bottom
     }
 
     // X 영역 위에 있을 때 강조 표시

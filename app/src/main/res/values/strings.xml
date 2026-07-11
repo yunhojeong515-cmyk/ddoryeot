@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">또렷</string>
+
+    <!-- 홈 화면 -->
+    <string name="app_logo">또렷</string>
+    <string name="home_subtitle">언제나 어디서나\n작동하는 돋보기</string>
+    <string name="btn_start">돋보기 시작</string>
+    <string name="btn_stop">돋보기 끄기</string>
+    <string name="guide_line1">화면 가장자리의</string>
+    <string name="guide_red_box">빨간 네모 </string>
+    <string name="guide_line3">터치해보세요!</string>
+    <string name="made_by">Made by 정윤호</string>
+
+    <!-- 설정 화면 -->
+    <string name="settings_zoom">확대창 배율</string>
+    <string name="settings_ratio">확대창 비율</string>
+
+    <!-- 토스트 메시지 -->
+    <string name="toast_stopped">돋보기 종료됨</string>
+    <string name="toast_already_running">이미 돋보기가 켜져 있어요 🔍</string>
+    <string name="toast_need_overlay">다른 앱 위에 표시 권한을 허용해주세요</string>
+    <string name="toast_need_permission">권한이 필요해요</string>
+    <string name="toast_started">돋보기 시작! 홈버튼을 눌러보세요 🔍</string>
+    <string name="toast_need_capture">화면 캡처 권한이 필요해요</string>
+    <string name="toast_screen_off">화면이 꺼져 돋보기를 다시 켜야 해요. 조준점을 탭하세요 🔍</string>
+    <string name="toast_restarted">돋보기 다시 시작됐어요 🔍</string>
+
+    <!-- 종료 영역 -->
+    <string name="drag_to_close">✕  끌어서 종료</string>
+    <string name="release_to_close">✕  놓으면 종료</string>
+
+    <!-- 알림 -->
+    <string name="notif_channel">또렷</string>
+    <string name="notif_title">🔍 또렷 실행 중</string>
+    <string name="notif_text">조준점을 탭하면 확대됩니다</string>
+    <string name="notif_stop">종료</string>
+
+    <!-- 언어 선택 -->
+    <string name="settings_language">언어 / Language</string>
+    <string name="lang_ko">한국어</string>
+    <string name="lang_en">English</string>
+    <string name="lang_ja">日本語</string>
+</resources>

@@ -1,0 +1,44 @@
+# ===== Android Studio / Gradle =====
+*.iml
+.gradle/
+/local.properties
+/.idea/
+.DS_Store
+/build/
+/captures/
+.externalNativeBuild/
+.cxx/
+local.properties
+
+# 각 모듈의 빌드 산출물
+app/build/
+app/release/
+app/debug/
+
+# 서명 관련 (본인만 가지고 있어야 함, 절대 공개 저장소에 올리지 말 것)
+*.jks
+*.keystore
+
+# Gradle 캐시/래퍼 실행 산출물 (wrapper 설정 파일 자체는 유지)
+.gradle
+gradle-app.setting
+!gradle-wrapper.jar
+.gradletasknamecache
+
+# 로그/캐시
+*.log
+*.hprof
+
+# 크래시 리포트
+*.stacktrace
+
+# Freeline
+freeline.py
+freeline/
+freeline_project_description.json
+
+# 버전 관리 시스템
+.svn/
+
+# OS 관련
+Thumbs.db

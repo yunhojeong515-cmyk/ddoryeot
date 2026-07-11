@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">DDORYEOT</string>
+
+    <!-- Home -->
+    <string name="app_logo">DDORYEOT</string>
+    <string name="home_subtitle">A MAGNIFIER THAT WORKS\nANYTIME, ANYWHERE</string>
+    <string name="btn_start">START MAGNIFIER</string>
+    <string name="btn_stop">STOP MAGNIFIER</string>
+    <string name="guide_line1">TAP THE</string>
+    <string name="guide_red_box">RED SQUARE </string>
+    <string name="guide_line3">AT THE EDGE OF YOUR SCREEN!</string>
+    <string name="made_by">MADE BY YUNHO JEONG</string>
+
+    <!-- Settings -->
+    <string name="settings_zoom">ZOOM LEVEL</string>
+    <string name="settings_ratio">WINDOW RATIO</string>
+
+    <!-- Toast -->
+    <string name="toast_stopped">MAGNIFIER STOPPED</string>
+    <string name="toast_already_running">MAGNIFIER IS ALREADY ON 🔍</string>
+    <string name="toast_need_overlay">PLEASE ALLOW DISPLAY OVER OTHER APPS</string>
+    <string name="toast_need_permission">PERMISSION REQUIRED</string>
+    <string name="toast_started">STARTED! TRY PRESSING THE HOME BUTTON 🔍</string>
+    <string name="toast_need_capture">SCREEN CAPTURE PERMISSION REQUIRED</string>
+    <string name="toast_screen_off">SCREEN TURNED OFF. TAP THE MARKER TO RESTART 🔍</string>
+    <string name="toast_restarted">MAGNIFIER RESTARTED 🔍</string>
+
+    <!-- Close zone -->
+    <string name="drag_to_close">✕  DRAG TO CLOSE</string>
+    <string name="release_to_close">✕  RELEASE TO CLOSE</string>
+
+    <!-- Notification -->
+    <string name="notif_channel">DDORYEOT</string>
+    <string name="notif_title">🔍 DDORYEOT IS RUNNING</string>
+    <string name="notif_text">TAP THE MARKER TO MAGNIFY</string>
+    <string name="notif_stop">STOP</string>
+
+    <!-- Language -->
+    <string name="settings_language">언어 / Language</string>
+    <string name="lang_ko">한국어</string>
+    <string name="lang_en">English</string>
+    <string name="lang_ja">日本語</string>
+</resources>

@@ -52,7 +52,7 @@ class FloatingService : Service() {
     private var screenDensity = 0
 
     private var zoom = 2.5f
-    private val VIEWER_BASE_DP = 200   // 확대창 기준 긴 변 길이 (기존 180에서 15% 확대)
+    private val VIEWER_BASE_DP = 200   // 확대창 기준 긴 변 길이
     private val IDLE_DP = 56
     private var viewerW = 0
     private var viewerH = 0
